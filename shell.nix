@@ -1,7 +1,7 @@
 { pkgs ? import <nixpkgs> { } }:
 
 pkgs.mkShell {
-  name = "elixir-shell";
+  name = "elixir";
   buildInputs = with pkgs; [
     elixir
   ];
