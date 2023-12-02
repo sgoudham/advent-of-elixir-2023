@@ -1,21 +1,14 @@
 defmodule DayOne do
-  def join_digits(list) do
-    case List.first(list) do
-      first ->
-        case List.last(list) do
-          nil -> first
-          last -> first <> last
-        end
-    end
+  def join_digits([head | _rest] = list) do
+    head <> (List.last(list) || "")
   end
 
   def remove_letters(list) do
-    Enum.filter(list |> String.graphemes(), fn y ->
-      case Integer.parse(y) do
-        {_, _} -> true
-        :error -> false
-      end
-    end)
+    Enum.filter(String.graphemes(list), &(Integer.parse(&1) != :error))
+  end
+
+  def replace_regex(data, pattern, map) do
+    String.replace(data, pattern, fn y -> map[y] end)
   end
 
   def part1(file) do
@@ -54,8 +47,8 @@ defmodule DayOne do
 
     File.stream!(file)
     |> Stream.map(&String.trim/1)
-    |> Stream.map(fn x -> String.replace(x, primary, fn y -> map[y] end) end)
-    |> Stream.map(fn x -> String.replace(x, secondary, fn y -> map[y] end) end)
+    |> Stream.map(fn x -> replace_regex(x, primary, map) end)
+    |> Stream.map(fn x -> replace_regex(x, secondary, map) end)
     |> Stream.map(&remove_letters/1)
     |> Stream.map(&join_digits/1)
     |> Stream.map(&String.to_integer/1)
