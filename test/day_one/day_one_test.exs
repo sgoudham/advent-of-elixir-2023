@@ -1,4 +1,5 @@
 defmodule DayOneTest do
+  alias Aoc.DayOne
   use ExUnit.Case
 
   @fixtures "test/day_one/fixtures/"

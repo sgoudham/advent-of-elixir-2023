@@ -1,4 +1,4 @@
-defmodule DayOne do
+defmodule Aoc.DayOne do
   def join_digits([head | _rest] = list) do
     head <> (List.last(list) || "")
   end
