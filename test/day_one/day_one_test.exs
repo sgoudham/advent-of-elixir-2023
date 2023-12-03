@@ -4,19 +4,19 @@ defmodule DayOneTest do
 
   @fixtures "test/day_one/fixtures/"
 
-  test "successfully passes part1 sample" do
-    assert DayOne.part1(@fixtures <> "part1_sample.txt") == 142
+  test "successfully passes part one sample" do
+    assert DayOne.part_one(@fixtures <> "part_one.txt") == 142
   end
 
-  test "successfully passes part1" do
-    assert DayOne.part1(@fixtures <> "input.txt") == 55108
+  test "successfully passes part one" do
+    assert DayOne.part_one(@fixtures <> "input.txt") == 55108
   end
 
-  test "successfully passes part2 sample" do
-    assert DayOne.part2(@fixtures <> "part2_sample.txt") == 281
+  test "successfully passes part two sample" do
+    assert DayOne.part_two(@fixtures <> "part_two.txt") == 281
   end
 
-  test "successfully passes part2" do
-    assert DayOne.part2(@fixtures <> "input.txt") == 56324
+  test "successfully passes part two" do
+    assert DayOne.part_two(@fixtures <> "input.txt") == 56324
   end
 end

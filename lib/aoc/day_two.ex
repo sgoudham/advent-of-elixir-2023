@@ -37,7 +37,7 @@ defmodule Aoc.DayTwo do
     {id, game}
   end
 
-  def process_game_part1({id, game}, acc) do
+  def process_game_part_one({id, game}, acc) do
     sets =
       game
       |> Enum.map(fn sets ->
@@ -51,14 +51,14 @@ defmodule Aoc.DayTwo do
     end
   end
 
-  def part1(file) do
+  def part_one(file) do
     File.stream!(file)
     |> Stream.map(&String.trim/1)
     |> Enum.map(&convert_line_to_game/1)
-    |> Enum.reduce(0, &process_game_part1/2)
+    |> Enum.reduce(0, &process_game_part_one/2)
   end
 
-  def process_game_part2({_, game}) do
+  def process_game_part_two({_, game}) do
     min_cubes =
       Enum.reduce(Enum.concat(game), @fewest_cubes, fn {cubes, colour}, acc ->
         val = max(Map.fetch!(acc, colour), cubes)
@@ -68,11 +68,11 @@ defmodule Aoc.DayTwo do
     Enum.reduce(Map.values(min_cubes), fn x, acc -> x * acc end)
   end
 
-  def part2(file) do
+  def part_two(file) do
     File.stream!(file)
     |> Stream.map(&String.trim/1)
     |> Stream.map(&convert_line_to_game/1)
-    |> Enum.map(&process_game_part2/1)
+    |> Enum.map(&process_game_part_two/1)
     |> Enum.sum()
   end
 end

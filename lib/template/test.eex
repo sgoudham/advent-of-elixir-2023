@@ -1,0 +1,22 @@
+defmodule Day<%= upper_day %>Test do
+  alias Aoc.Day<%= upper_day %>
+  use ExUnit.Case
+
+  @fixtures "test/day_<%= lower_day %>/fixtures/"
+
+  test "successfully passes part one sample" do
+    assert Day<%= upper_day %>.part_one(@fixtures <> "part_one.txt") == 0
+  end
+
+  test "successfully passes part one" do
+    assert Day<%= upper_day %>.part_one(@fixtures <> "input.txt") == 0
+  end
+
+  test "successfully passes part two sample" do
+    assert Day<%= upper_day %>.part_two(@fixtures <> "part_two.txt") == 0
+  end
+
+  test "successfully passes part two" do
+    assert Day<%= upper_day %>.part_two(@fixtures <> "input.txt") == 0
+  end
+end

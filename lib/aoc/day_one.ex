@@ -11,7 +11,7 @@ defmodule Aoc.DayOne do
     String.replace(data, pattern, fn y -> map[y] end)
   end
 
-  def part1(file) do
+  def part_one(file) do
     File.stream!(file)
     |> Stream.map(&String.trim/1)
     |> Stream.map(&remove_letters/1)
@@ -20,7 +20,7 @@ defmodule Aoc.DayOne do
     |> Enum.sum()
   end
 
-  def part2(file) do
+  def part_two(file) do
     primary = ~r/(one|two|three|four|five|six|seven|eight|nine)/i
     secondary = ~r/(ne|wo|hree|our|ive|ix|even|ight|ine)/i
 
